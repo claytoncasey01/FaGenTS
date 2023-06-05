@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "oclif",
+    "oclif-typescript",
+    "airbnb-typescript",
+    "prettier"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "no-duplicate-imports": "error",
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}],
+    "react/jsx-filename-extension": "off"
+  }
+}
