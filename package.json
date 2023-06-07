@@ -1,15 +1,15 @@
 {
-  "name": "fa-gen",
+  "name": "FaGenTS",
   "version": "0.0.0",
   "description": "FontAwesome icon component generator (react, vue, etc)",
   "author": "Casey Clayton @claytoncasey01",
   "bin": {
     "fa-gen": "./bin/run"
   },
-  "homepage": "https://github.com/claytoncasey01/fa-gen",
+  "homepage": "https://github.com/claytoncasey01/FaGenTS",
   "license": "MIT",
   "main": "dist/index.js",
-  "repository": "claytoncasey01/fa-gen",
+  "repository": "claytoncasey01/FaGenTS",
   "files": [
     "/bin",
     "/dist",

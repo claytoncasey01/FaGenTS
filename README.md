@@ -1,13 +1,7 @@
-oclif-hello-world
+FontAwesome Icon Component Generator
 =================
 
-oclif example Hello World CLI
-
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
-[![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
+Generates icon components using FontAwesome for React.
 
 <!-- toc -->
 * [Usage](#usage)
@@ -16,11 +10,11 @@ oclif example Hello World CLI
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g fa-gen
+$ npm install -g FaGenTS
 $ fa-gen COMMAND
 running command...
 $ fa-gen (--version)
-fa-gen/0.0.0 darwin-arm64 node-v16.15.1
+FaGenTS/0.0.0 darwin-arm64 node-v16.15.1
 $ fa-gen --help [COMMAND]
 USAGE
   $ fa-gen COMMAND
@@ -29,8 +23,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`fa-gen hello PERSON`](#fa-gen-hello-person)
-* [`fa-gen hello world`](#fa-gen-hello-world)
+* [`fa-gen generate`](#fa-gen-generate)
 * [`fa-gen help [COMMANDS]`](#fa-gen-help-commands)
 * [`fa-gen plugins`](#fa-gen-plugins)
 * [`fa-gen plugins:install PLUGIN...`](#fa-gen-pluginsinstall-plugin)
@@ -42,45 +35,22 @@ USAGE
 * [`fa-gen plugins:uninstall PLUGIN...`](#fa-gen-pluginsuninstall-plugin-2)
 * [`fa-gen plugins update`](#fa-gen-plugins-update)
 
-## `fa-gen hello PERSON`
+## `fa-gen generate`
 
-Say hello
+Generates an icon wrapper component for FontAwesome Icons
 
 ```
 USAGE
-  $ fa-gen hello PERSON -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
+  $ fa-gen generate [-c <value>]
 
 FLAGS
-  -f, --from=<value>  (required) Who is saying hello
+  -c, --config=<value>  Path to the config file
 
 DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
+  Generates an icon wrapper component for FontAwesome Icons
 ```
 
-_See code: [dist/commands/hello/index.ts](https://github.com/claytoncasey01/fa-gen/blob/v0.0.0/dist/commands/hello/index.ts)_
-
-## `fa-gen hello world`
-
-Say hello world
-
-```
-USAGE
-  $ fa-gen hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ fa-gen hello world
-  hello world! (./src/commands/hello/world.ts)
-```
+_See code: [dist/commands/generate.ts](https://github.com/claytoncasey01/FaGenTS/blob/v0.0.0/dist/commands/generate.ts)_
 
 ## `fa-gen help [COMMANDS]`
 
