@@ -1,0 +1,21 @@
+import { 
+{{#each iconComponents}}
+{{#unless @last}}
+{{this}},
+{{/unless}}
+{{#if @last}}
+{{this}}
+{{/if}}
+{{/each}}
+} from './';
+
+export {
+{{#each iconComponents}}
+{{#unless @last}}
+{{this}},
+{{/unless}}
+{{#if @last}}
+{{this}}
+{{/if}}
+{{/each}}
+};

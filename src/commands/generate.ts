@@ -46,11 +46,13 @@ export default class Generate extends Command {
 
   static flags = {
     config: Flags.string({ char: 'c', description: 'Path to the config file' }),
+    export: Flags.boolean({ char: 'e', description: 'Output an index.ts file in the output directory with all generated files exported' })
   };
 
   async run(): Promise<void> {
     const { flags } = await this.parse(Generate);
     const configFile = flags.config;
+    const exportPath = flags.export;
 
     if (configFile) {
       const configContent = readFileSync(configFile, { encoding: 'utf8' });
@@ -62,6 +64,21 @@ export default class Generate extends Command {
       for (const icon of config.icons) {
         generateComponent(icon, config.output, template);
       }
+
+      // Adds an index.tsx file in the same directory as the generated components
+      // and exports all generated components.
+      if (exportPath) {
+        // TODO: Maybe find a better name for this template?
+        const exportsTemplateString = loadTemplate('index.tsx.hbs');
+        const exportsTemplate = compile(exportsTemplateString);
+        const exportsContext = { iconComponents: config.icons.map(icon => icon.componentName) };
+        const rendered = exportsTemplate(exportsContext);
+
+        const filePath = join(config.output, 'index.tsx');
+        writeFileSync(filePath, rendered);
+
+      }
+
     } else {
       this.error('Error: No config file specified, please provide one with the --config flag');
     }
