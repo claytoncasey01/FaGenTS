@@ -36,7 +36,7 @@ function generateComponent(icon: Icon, outputPath: string, template: TemplateDel
   const rendered = template(context);
   mkdirSync(outputPath, { recursive: true });
 
-  const fileName = `${componentName}Icon.tsx`;
+  const fileName = `${componentName}.tsx`;
   const filePath = join(outputPath, fileName);
   writeFileSync(filePath, rendered);
 }

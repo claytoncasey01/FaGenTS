@@ -1,21 +1,14 @@
-import { 
 {{#each iconComponents}}
-{{#unless @last}}
-{{this}},
-{{/unless}}
-{{#if @last}}
-{{this}}
-{{/if}}
+import {{this}} from "./{{this}}";
 {{/each}}
-} from './';
 
 export {
-{{#each iconComponents}}
-{{#unless @last}}
-{{this}},
-{{/unless}}
-{{#if @last}}
-{{this}}
-{{/if}}
-{{/each}}
+  {{#each iconComponents}}
+  {{#unless @last}}
+  {{this}},
+  {{/unless}}
+  {{#if @last}}
+  {{this}}
+  {{/if}}
+  {{/each}}
 };

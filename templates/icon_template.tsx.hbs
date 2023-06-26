@@ -1,9 +1,15 @@
 import React from 'react';
+import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import { {{iconName}} } from '{{iconPath}}';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const {{componentName}}Icon = () => {
-  return <FontAwesomeIcon icon={ {{iconName}} } />;
+interface IconProps {
+  width: number;
+  size?: SizeProp;
+}
+
+const {{componentName}} = ({ width, size }: IconProps) => {
+  return <FontAwesomeIcon icon={ {{iconName}} } width={width} size={size} />;
 };
 
-export default {{componentName}}Icon;
+export default {{componentName}};
