@@ -1,0 +1,120 @@
+{
+  "icons": [
+    {
+      "name": "faArrowRight",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "ArrowRightIcon"
+    },
+    {
+      "name": "faAngleLeft",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "BackIcon"
+    },
+    {
+      "name": "faCalendarDays",
+      "style": "regular",
+      "iconType": "free",
+      "componentName": "CalendarIcon"
+    },
+    {
+      "name": "faCommentDots",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "ChatBubbleIcon"
+    },
+    {
+      "name": "faCheck",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "CheckmarkIcon"
+    },
+    {
+      "name": "faXmark",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "CloseIcon"
+    },
+    {
+      "name": "faClipboard",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "CopyIcon"
+    },
+    {
+      "name": "faBoltLightning",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "DataDiscoveryIcon"
+    },
+    {
+      "name": "faAngleDown",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "DownIcon"
+    },
+    {
+      "name": "faAngleRight",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "ForwardIcon"
+    },
+    {
+      "name": "faEnvelope",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "MessageReadIcon"
+    },
+    {
+      "name": "faPhone",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "PhoneIcon"
+    },
+    {
+      "name": "faCircleQuestion",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "QuestionMarkIcon"
+    },
+    {
+      "name": "faDownLong",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "RiskDecreasingIcon"
+    },
+    {
+      "name": "faUpLong",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "RiskIncreasingIcon"
+    },
+    {
+      "name": "faPaperPlane",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "SendIcon"
+    },
+    {
+      "name": "faGear",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "SettingsIcon"
+    },
+    {
+      "name": "faAngleUp",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "UpIcon"
+    },
+    {
+      "name": "faTriangleExclamation",
+      "style": "solid",
+      "iconType": "free",
+      "componentName": "WarningIcon"
+    }
+  ],
+  "outputPath": "../../RoninProjects/frontend/ronin-design-system/src/core/icon",
+  "storiesPath": "../../RoninProjects/frontend/ronin-design-system/stories/core/icon"
+}

@@ -1,0 +1,36 @@
+import React from 'react';
+import { ComponentStory } from '@storybook/react';
+import { parsedTokens } from 'ronin-design-tokens';
+import { {{componentName}} } from '../../../src/core/icon';
+
+
+export default {
+  component: {{ componentName }},
+  title: 'Components/Icon',
+  argTypes: {
+    color: {
+      options: parsedTokens.colors,
+        control: {
+        type: 'select',
+        },
+    },
+  },
+  parameters: {
+    design: {
+      name: 'Figma',
+      type: 'figma',
+      url: 'https://www.figma.com/file/9FopXxM90qGl44ZvhjtC77/Clinician-RDS?node-id=1532%3A7323&t=jdp8iic4aZigAZW4-1',
+    },
+  },
+} as ComponentMeta <typeof {{componentName}}>;
+
+const Template: ComponentStory<typeof {{componentName}}> = args => {
+  return <{{componentName}} {...args } data-testid=`icon-${ {{componentName}} }` />;
+};
+
+export const {{componentName}} = Template.bind({});
+{{componentName}}.args = {
+  // we map the ronin token key to the font awesome class name in the story config
+  color: parsedTokens.colors['rds-core-black'],
+};
+

@@ -1,5 +1,5 @@
 import { Command, Flags } from '@oclif/core';
-import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import { readFileSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { compile, TemplateDelegate } from 'handlebars';
 
@@ -15,7 +15,8 @@ interface Icon {
 
 interface Config {
   icons: Icon[];
-  output: string;
+  outputPath: string;
+  storiesPath: string;
 }
 
 function loadTemplate(templateName: string): string {
@@ -34,11 +35,26 @@ function generateComponent(icon: Icon, outputPath: string, template: TemplateDel
   const context = { iconName: name, iconPath, componentName };
 
   const rendered = template(context);
-  mkdirSync(outputPath, { recursive: true });
+
+  if (!existsSync(outputPath)) {
+    mkdirSync(outputPath, { recursive: true });
+  }
 
   const fileName = `${componentName}.tsx`;
   const filePath = join(outputPath, fileName);
-  writeFileSync(filePath, rendered);
+  writeFileSync(filePath, rendered, { flag: 'w' });
+}
+
+function generateStory(componentName: string, storiesPath: string, template: TemplateDelegate): void {
+  const rendered = template({ componentName });
+
+  if (!existsSync(storiesPath)) {
+    mkdirSync(storiesPath, { recursive: true });
+  }
+
+  const fileName = `${componentName}.stories.tsx`;
+  const filePath = join(storiesPath, fileName);
+  writeFileSync(filePath, rendered, { flag: 'w' });
 }
 
 export default class Generate extends Command {
@@ -47,6 +63,7 @@ export default class Generate extends Command {
   static flags = {
     config: Flags.string({ char: 'c', description: 'Path to the config file' }),
     export: Flags.boolean({ char: 'e', description: 'Output an index.ts file in the output directory with all generated files exported' })
+    // destructive: Flags.boolean({ char: 'd', description: 'This will delete any existing directories and files in the given paths if they exist before generating the new ones.' })
   };
 
   async run(): Promise<void> {
@@ -62,7 +79,8 @@ export default class Generate extends Command {
       const template = compile(templateString);
 
       for (const icon of config.icons) {
-        generateComponent(icon, config.output, template);
+        generateStory(icon.componentName, config.storiesPath, template);
+        generateComponent(icon, config.outputPath, template);
       }
 
       // Adds an index.tsx file in the same directory as the generated components
@@ -74,7 +92,7 @@ export default class Generate extends Command {
         const exportsContext = { iconComponents: config.icons.map(icon => icon.componentName) };
         const rendered = exportsTemplate(exportsContext);
 
-        const filePath = join(config.output, 'index.tsx');
+        const filePath = join(config.outputPath, 'index.tsx');
         writeFileSync(filePath, rendered);
 
       }
