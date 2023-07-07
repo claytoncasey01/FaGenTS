@@ -1,7 +1,25 @@
 import React from 'react';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
+{{#unless custom}}
 import { {{iconName}} } from '{{iconPath}}';
+{{/unless}}
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+{{#if custom}}
+import { IconDefinition, IconName } from "@fortawesome/fontawesome-svg-core";
+
+// Defines the FontAwesome Icon definition for our SVG
+const {{iconName}}: IconDefinition = {
+  prefix: 'fak',
+  iconName: '{{iconName}}' as IconName,
+  icon: [
+    512,
+    512,
+    [],
+    'e000',
+    '{{svgPathData}}'
+  ]
+}; 
+{{/if}}
 
 export interface {{componentName}}Props {
   width?: number;
@@ -10,7 +28,7 @@ export interface {{componentName}}Props {
   props?: any;
 }
 
-const {{componentName}} = ({ width, size, color ...props }: {{componentName}}Props) => {
+const {{componentName}} = ({ width, size, color, ...props }: {{componentName}}Props) => {
   return <FontAwesomeIcon icon={ {{iconName}} } width={width} size={size} color={color} {...props} />;
 };
 

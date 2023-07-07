@@ -4,13 +4,14 @@ import { join } from 'node:path';
 import { compile, TemplateDelegate } from 'handlebars';
 
 type IconStyle = 'solid' | 'regular' | 'light' | 'thin' | 'duotone' | 'brands';
-type IconType = 'pro' | 'free';
+type IconType = 'pro' | 'free' | 'custom';
 
 interface Icon {
   name: string;
   componentName: string;
   style: IconStyle;
   iconType: IconType;
+  svgPathData?: string;
 }
 
 interface Config {
@@ -29,12 +30,12 @@ function buildIconPath(iconStyle: IconStyle, iconType: IconType): string {
   return `@fortawesome/${iconType}-${iconStyle}-svg-icons`;
 }
 
-function generateComponent(icon: Icon, outputPath: string, template: TemplateDelegate): void {
-  const { name, componentName, style, iconType } = icon;
-  const iconPath = buildIconPath(style, iconType);
-  const context = { iconName: name, iconPath, componentName };
+function generateComponent(icon: Icon, outputPath: string, template: TemplateDelegate, custom: boolean = false): void {
+  const { name, componentName, style, iconType, svgPathData } = icon;
+  const context = custom ? { iconName: name, componentName, svgPathData, custom } : { iconName: name, iconPath: buildIconPath(style, iconType), componentName };
 
   const rendered = template(context);
+
 
   if (!existsSync(outputPath)) {
     mkdirSync(outputPath, { recursive: true });
@@ -75,12 +76,14 @@ export default class Generate extends Command {
       const configContent = readFileSync(configFile, { encoding: 'utf8' });
       const config: Config = JSON.parse(configContent);
 
-      const templateString = loadTemplate('icon_template.tsx.hbs');
-      const template = compile(templateString);
+      const iconTemplateString = loadTemplate('icon_template.tsx.hbs');
+      const iconTemplate = compile(iconTemplateString);
+
+      const storyTemplate = compile(loadTemplate('story_template.hbs'));
 
       for (const icon of config.icons) {
-        generateStory(icon.componentName, config.storiesPath, template);
-        generateComponent(icon, config.outputPath, template);
+        generateStory(icon.componentName, config.storiesPath, storyTemplate);
+        generateComponent(icon, config.outputPath, iconTemplate, icon.iconType === 'custom');
       }
 
       // Adds an index.tsx file in the same directory as the generated components
