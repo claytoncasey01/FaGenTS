@@ -28,7 +28,7 @@
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.18.20",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
-    "@typescript-eslint/parser": "^5.57.0",
+    "@typescript-eslint/parser": "^5.61.0",
     "chai": "^4",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
