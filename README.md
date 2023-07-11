@@ -41,11 +41,12 @@ Generates an icon wrapper component for FontAwesome Icons
 
 ```
 USAGE
-  $ fa-gen generate [-c <value>] [-e]
+  $ fa-gen generate [-c <value>] [-e] [-t <value>]
 
 FLAGS
-  -c, --config=<value>  Path to the config file
-  -e, --export          Output an index.ts file in the output directory with all generated files exported
+  -c, --config=<value>    Path to the config file
+  -e, --export            Output an index.ts file in the output directory with all generated files exported
+  -t, --template=<value>  Path to the templates that are used when creating the icon components
 
 DESCRIPTION
   Generates an icon wrapper component for FontAwesome Icons
