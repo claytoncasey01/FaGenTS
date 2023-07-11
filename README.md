@@ -14,7 +14,7 @@ $ npm install -g fa-gen-ts
 $ fa-gen COMMAND
 running command...
 $ fa-gen (--version)
-fa-gen-ts/0.6.0 darwin-arm64 node-v16.15.1
+fa-gen-ts/0.6.1 darwin-arm64 node-v16.15.1
 $ fa-gen --help [COMMAND]
 USAGE
   $ fa-gen COMMAND
@@ -51,7 +51,7 @@ DESCRIPTION
   Generates an icon wrapper component for FontAwesome Icons
 ```
 
-_See code: [dist/commands/generate.ts](https://github.com/claytoncasey01/FaGenTS/blob/v0.6.0/dist/commands/generate.ts)_
+_See code: [dist/commands/generate.ts](https://github.com/claytoncasey01/FaGenTS/blob/v0.6.1/dist/commands/generate.ts)_
 
 ## `fa-gen help [COMMANDS]`
 
