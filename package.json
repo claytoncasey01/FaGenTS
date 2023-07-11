@@ -14,7 +14,8 @@
     "/bin",
     "/dist",
     "/npm-shrinkwrap.json",
-    "/oclif.manifest.json"
+    "/oclif.manifest.json",
+    "/templates"
   ],
   "dependencies": {
     "@oclif/core": "^2",
@@ -55,7 +56,7 @@
     "topicSeparator": " "
   },
   "scripts": {
-    "build": "shx rm -rf dist && tsc -b && cp -a ./templates ./dist",
+    "build": "shx rm -rf dist && tsc -b",
     "lint": "eslint . --ext .ts --config .eslintrc",
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "yarn lint",
