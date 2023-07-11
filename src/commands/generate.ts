@@ -20,8 +20,9 @@ interface Config {
   storiesPath: string;
 }
 
-function loadTemplate(templateName: string): string {
-  const path = join('templates', templateName);
+function loadTemplate(templateName: string, templatesPath?: string): string {
+  const path = join(templatesPath ?? 'templates', templateName);
+  console.log(path);
 
   return readFileSync(path, { encoding: 'utf8' });
 }
@@ -63,7 +64,8 @@ export default class Generate extends Command {
 
   static flags = {
     config: Flags.string({ char: 'c', description: 'Path to the config file' }),
-    export: Flags.boolean({ char: 'e', description: 'Output an index.ts file in the output directory with all generated files exported' })
+    export: Flags.boolean({ char: 'e', description: 'Output an index.ts file in the output directory with all generated files exported' }),
+    template: Flags.string({ char: 't', description: "Path to the templates that are used when creating the icon components" })
     // destructive: Flags.boolean({ char: 'd', description: 'This will delete any existing directories and files in the given paths if they exist before generating the new ones.' })
   };
 
@@ -71,15 +73,16 @@ export default class Generate extends Command {
     const { flags } = await this.parse(Generate);
     const configFile = flags.config;
     const exportPath = flags.export;
+    const templatePath = flags.template;
 
     if (configFile) {
       const configContent = readFileSync(configFile, { encoding: 'utf8' });
       const config: Config = JSON.parse(configContent);
 
-      const iconTemplateString = loadTemplate('icon_template.tsx.hbs');
+      const iconTemplateString = loadTemplate('icon_template.tsx.hbs', templatePath);
       const iconTemplate = compile(iconTemplateString);
 
-      const storyTemplate = compile(loadTemplate('story_template.hbs'));
+      const storyTemplate = compile(loadTemplate('story_template.hbs', templatePath));
 
       for (const icon of config.icons) {
         generateStory(icon.componentName, config.storiesPath, storyTemplate);
