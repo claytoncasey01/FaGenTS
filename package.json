@@ -1,6 +1,6 @@
 {
-  "name": "FaGenTS",
-  "version": "0.0.0",
+  "name": "fa-gen-ts",
+  "version": "0.5.0",
   "description": "FontAwesome icon component generator (react, vue, etc)",
   "author": "Casey Clayton @claytoncasey01",
   "bin": {

@@ -10,11 +10,11 @@ Generates icon components using FontAwesome for React.
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g FaGenTS
+$ npm install -g fa-gen-ts
 $ fa-gen COMMAND
 running command...
 $ fa-gen (--version)
-FaGenTS/0.0.0 darwin-arm64 node-v16.15.1
+fa-gen-ts/0.5.0 darwin-arm64 node-v16.15.1
 $ fa-gen --help [COMMAND]
 USAGE
   $ fa-gen COMMAND
@@ -41,16 +41,17 @@ Generates an icon wrapper component for FontAwesome Icons
 
 ```
 USAGE
-  $ fa-gen generate [-c <value>]
+  $ fa-gen generate [-c <value>] [-e]
 
 FLAGS
   -c, --config=<value>  Path to the config file
+  -e, --export          Output an index.ts file in the output directory with all generated files exported
 
 DESCRIPTION
   Generates an icon wrapper component for FontAwesome Icons
 ```
 
-_See code: [dist/commands/generate.ts](https://github.com/claytoncasey01/FaGenTS/blob/v0.0.0/dist/commands/generate.ts)_
+_See code: [dist/commands/generate.ts](https://github.com/claytoncasey01/FaGenTS/blob/v0.5.0/dist/commands/generate.ts)_
 
 ## `fa-gen help [COMMANDS]`
 
