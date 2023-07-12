@@ -22,7 +22,6 @@ interface Config {
 
 function loadTemplate(templateName: string, templatesPath?: string): string {
   const path = join(templatesPath ?? 'templates', templateName);
-  console.log(path);
 
   return readFileSync(path, { encoding: 'utf8' });
 }
