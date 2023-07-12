@@ -14,7 +14,7 @@ $ npm install -g fa-gen-ts
 $ fa-gen COMMAND
 running command...
 $ fa-gen (--version)
-fa-gen-ts/0.6.3 darwin-arm64 node-v16.15.1
+fa-gen-ts/0.6.4 darwin-arm64 node-v16.15.1
 $ fa-gen --help [COMMAND]
 USAGE
   $ fa-gen COMMAND
@@ -23,7 +23,6 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`fa-gen generate`](#fa-gen-generate)
 * [`fa-gen help [COMMANDS]`](#fa-gen-help-commands)
 * [`fa-gen plugins`](#fa-gen-plugins)
 * [`fa-gen plugins:install PLUGIN...`](#fa-gen-pluginsinstall-plugin)
@@ -34,25 +33,6 @@ USAGE
 * [`fa-gen plugins:uninstall PLUGIN...`](#fa-gen-pluginsuninstall-plugin-1)
 * [`fa-gen plugins:uninstall PLUGIN...`](#fa-gen-pluginsuninstall-plugin-2)
 * [`fa-gen plugins update`](#fa-gen-plugins-update)
-
-## `fa-gen generate`
-
-Generates an icon wrapper component for FontAwesome Icons
-
-```
-USAGE
-  $ fa-gen generate [-c <value>] [-e] [-t <value>]
-
-FLAGS
-  -c, --config=<value>    Path to the config file
-  -e, --export            Output an index.ts file in the output directory with all generated files exported
-  -t, --template=<value>  Path to the templates that are used when creating the icon components
-
-DESCRIPTION
-  Generates an icon wrapper component for FontAwesome Icons
-```
-
-_See code: [dist/commands/generate.ts](https://github.com/claytoncasey01/FaGenTS/blob/v0.6.3/dist/commands/generate.ts)_
 
 ## `fa-gen help [COMMANDS]`
 
