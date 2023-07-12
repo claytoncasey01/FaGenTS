@@ -93,7 +93,7 @@ export default class Generate extends Command {
       // and exports all generated components.
       if (exportPath) {
         // TODO: Maybe find a better name for this template?
-        const exportsTemplateString = loadTemplate('index.tsx.hbs');
+        const exportsTemplateString = loadTemplate('index.tsx.hbs', templatePath);
         const exportsTemplate = compile(exportsTemplateString);
         const exportsContext = { iconComponents: config.icons.map(icon => icon.componentName) };
         const rendered = exportsTemplate(exportsContext);
